@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <title>Image prediction</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Image prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
     <style>
         html, body {
@@ -22,6 +22,7 @@
             background-size: cover;
             animation: backgroundAnimation 10s linear infinite;
         }
+
         h1 {
             color: #fff;
             text-align: center;
@@ -88,27 +89,19 @@
             margin-right: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-        /* .row{
-            display: inline;
-        }
-        .btn-part{
-            position: relative;
 
-            display: block;
-            width: 500px;
-        } */
         .content-text {
             font-family: "Arial", sans-serif;
             font-size: 18px;
             color: hwb(200 53% 46%);
             line-height: 1.5;
         }
-        
+
         .navbar {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 999;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
         }
 
         .navbar-brand {
@@ -119,103 +112,103 @@
             font-size: 18px;
             margin-right: 10px;
         }
+
         .main-page {
-        background-color: #f8f8f8;
-        padding: 20px;
-        text-align: center;
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
         }
+
         .app-heading {
-        font-size: 48px;
-        font-weight: 700;
-        color: #1b2d6b;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin: 0;
+            font-size: 48px;
+            font-weight: 700;
+            color: #1b2d6b;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
         }
+
         input[type="file"] {
-        display: none;
+            display: none;
         }
-        /* .row{
-            display: inline-block;
-        } */
 
+        .img-part {
+            text-align: center;
+        }
 
+        .btn-part {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .result {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-  
-
     <nav class="navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Skin Rash Web app</a>
         <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="/templates/experiment.html">Prediction</a>
             </li>
         </ul>
     </nav>
-    
+
     <div class="main-page">
         <h1 class="app-heading">Skin Rash prediction Web App</h1>
-      </div>
-      
-
-   
-    
-
-
-
-
+    </div>
 
     <div class="techy-text">
-        </span> © Skin Rash prediction 
+        © Skin Rash prediction
     </div>
-        <div class="main container">
-        
+
+    <div class="main container">
         <div class="text-center">
-        <section class="iupload">
-            
-            <div class="row">
-            
-                <div class="img-part col-md-6">
-                    <div class="image-part">
-                        <img src="" id="photo">
-                        <canvas style="display:none;" id="canvas"></canvas>
+            <section class="iupload">
+                <div class="row align-items-center"> <!-- Add the 'align-items-center' class to center vertically -->
+                    <div class="img-part col-md-6">
+                        <div class="image-part">
+                            <img src="" id="photo">
+                            <canvas style="display:none;" id="canvas"></canvas>
+                        </div>
                     </div>
-                    
-                    <div class="btn-part">
+                    <div class="btn-part col-md-6"> <!-- Add the 'col-md-6' class to make the columns half width each -->
                         <form id="upload-data" class="container">
+                            <!-- Your form elements go here -->
                             <div class="input-group">
                                 <button type="file" class="btn btn-primary col-md-5 col-xs-5 ml-3 mr-4" id="uload" onclick="document.getElementById('fileinput').click()" value="Select a File">Upload</button>
                                 <input name="upload" type="file" id="fileinput" style="position:absolute;top:500px;"/><br/>
 
                                 <button id="send" type="button" class="btn btn-success col-md-5 col-xs-5">Predict</button>
                             </div>
-        
                         </form>
+                        <!-- Add the buttons here (example) -->
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-primary">Button 1</button>
+                            <button type="button" class="btn btn-secondary">Button 2</button>
+                        </div>
                     </div>
                 </div>
-
-                
-                
-            </div>
-            <div class="result">
-                <h6 class="mb-2" style="color: rgb(63, 63, 63);" ><center>Prediction Results</center></h6>
-                <div class="row">
-                    <div class="res-part col-md-5 col-xs-12"><div class="jsonRes"></div></div>
+                <div class="result mt-3"> <!-- Add some margin at the top -->
+                    <h6 style="color: rgb(63, 63, 63);">Prediction Results</h6>
+                    <div class="row">
+                        <div class="res-part col-md-5 col-xs-12">
+                            <div class="jsonRes"></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
- 
+            </section>
+        </div>
+    </div>
 
-    
-    
     <!-- Footer-->
-    <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">by Ihsan</div></footer>
-       
-
-
- 
-    
+    <footer class="footer bg-black small text-center text-white-50">
+        <div class="container px-4 px-lg-5">by Ihsan</div>
+    </footer>
     <script src="js/scripts.js"></script>
-    
 </body>
 </html>
