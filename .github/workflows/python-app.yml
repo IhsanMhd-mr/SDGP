@@ -45,6 +45,6 @@ jobs:
         HEROKU_API_TOKEN: 03b6fad3-a73b-41dc-b6af-92bfd9530331
       if: github.ref == 'refs/heads/main' && job.status == 'success'
       run: | 
-        git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/stormy-peak-48611.git
+        git remote add heroku https://git.heroku.com/stormy-peak-48611.git
         git push heroku HEAD:main -f
 
