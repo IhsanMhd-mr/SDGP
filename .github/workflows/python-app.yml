@@ -38,3 +38,11 @@ jobs:
       run: |
         export PYTHONPATH=src
         pytest
+    - name: Deploy Heroku
+      env: 
+        HEROKU_API_TOKEN: ${{secrets.HEROKU_API_TOKEN}}
+      if: github.ref == 'refs/heads/main' && job.status == 'success'
+      run: | 
+        git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/stormy-peak-48611.git
+        git push heroku HEAD:main -f
+
