@@ -184,13 +184,11 @@
                                 <input name="upload" type="file" id="fileinput" style="position:absolute;top:500px;"/><br/>
 
                                 <button id="send" type="button" class="btn btn-success col-md-5 col-xs-5">Predict</button>
+                                <input name="upload" type="file" id="fileinput" style="position:absolute;top:500px;"/><br/>
+
                             </div>
                         </form>
-                        <!-- Add the buttons here (example) -->
-                        <div class="text-center mt-3">
-                            <button type="button" class="btn btn-primary">Button 1</button>
-                            <button type="button" class="btn btn-secondary">Button 2</button>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="result mt-3"> <!-- Add some margin at the top -->
@@ -209,6 +207,29 @@
     <footer class="footer bg-black small text-center text-white-50">
         <div class="container px-4 px-lg-5">by Ihsan</div>
     </footer>
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts.js">
+         document.getElementById('send').addEventListener('click', function() {
+        // Get the selected file from the file input element
+        var fileInput = document.getElementById('fileinput');
+        var file = fileInput.files[0];
+
+        // Create a FormData object to send the file data
+        var formData = new FormData();
+        formData.append('file', file);
+
+        // Perform the POST request to the Flask server
+        fetch('/predict', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the prediction result returned from the Flask server
+            console.log('Prediction:', data.prediction);
+            // You can display the prediction result on the page or perform any other actions as needed
+        })
+        .catch(error => console.error('Error:', error));
+    });
+    </script>
 </body>
 </html>
